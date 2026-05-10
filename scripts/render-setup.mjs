@@ -90,6 +90,8 @@ async function seedDemoDataIfNeeded() {
 await mkdir(path.resolve(process.cwd(), 'media'), { recursive: true });
 await mkdir(path.resolve(process.cwd(), 'public'), { recursive: true });
 
+let exitCode = 0;
+
 try {
   await execute(pool, 'CREATE EXTENSION IF NOT EXISTS pgcrypto;');
   await migrate(getCoreModules());
@@ -106,6 +108,13 @@ try {
   await seedDemoDataIfNeeded();
 
   console.log(`Render setup completed. Admin user ready: ${adminEmail}`);
+} catch (error) {
+  exitCode = 1;
+  console.error(error);
 } finally {
-  await pool.end();
+  await Promise.race([
+    pool.end().catch(() => undefined),
+    new Promise((resolve) => setTimeout(resolve, 1000))
+  ]);
+  process.exit(exitCode);
 }
