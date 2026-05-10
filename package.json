@@ -12,7 +12,7 @@
     "start": "node ./packages/evershop/dist/bin/start/index.js",
     "build": "node ./packages/evershop/dist/bin/build/index.js",
     "build-fast": "evershop build -- --skip-minify",
-    "setup": "evershop install",
+    "setup": "node ./scripts/render-setup.mjs",
     "theme:active": "evershop theme:active",
     "theme:twizz": "evershop theme:twizz",
     "theme:create": "evershop theme:create",
