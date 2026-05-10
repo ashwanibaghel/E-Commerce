@@ -23,6 +23,7 @@ interface PageData {
  * Seed CMS pages from JSON file
  */
 export async function seedPages(): Promise<void> {
+  const connection = await getConnection();
   try {
     info('Seeding CMS pages...');
 
@@ -30,7 +31,6 @@ export async function seedPages(): Promise<void> {
     const pagesPath = join(__dirname, 'data', 'pages.json');
     const pagesData: PageData[] = JSON.parse(readFileSync(pagesPath, 'utf-8'));
 
-    const connection = await getConnection();
     let created = 0;
     let skipped = 0;
 
@@ -77,5 +77,7 @@ export async function seedPages(): Promise<void> {
   } catch (e: any) {
     error(`Failed to seed pages: ${e.message}`);
     throw e;
+  } finally {
+    connection.release();
   }
 }

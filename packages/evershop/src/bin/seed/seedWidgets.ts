@@ -102,6 +102,7 @@ async function downloadSlideshowImages(
  * Seed widgets from JSON file
  */
 export async function seedWidgets(): Promise<void> {
+  const connection = await getConnection();
   try {
     info('Seeding widgets...');
 
@@ -111,7 +112,6 @@ export async function seedWidgets(): Promise<void> {
       readFileSync(widgetsPath, 'utf-8')
     );
 
-    const connection = await getConnection();
     let created = 0;
     let skipped = 0;
 
@@ -159,5 +159,7 @@ export async function seedWidgets(): Promise<void> {
   } catch (e: any) {
     error(`Failed to seed widgets: ${e.message}`);
     throw e;
+  } finally {
+    connection.release();
   }
 }
