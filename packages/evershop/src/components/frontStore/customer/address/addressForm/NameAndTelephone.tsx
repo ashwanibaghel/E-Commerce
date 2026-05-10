@@ -1,7 +1,6 @@
-import { InputField } from '@components/common/form/InputField.js';
-import { TelField } from '@components/common/form/TelField.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 interface NameAndTelephoneProps {
   fullName?: string;
@@ -13,30 +12,36 @@ export function NameAndTelephone({
   telephone,
   getFieldName
 }: NameAndTelephoneProps) {
+  const { register } = useFormContext();
+  const fullNameField = getFieldName ? getFieldName('full_name') : 'full_name';
+  const telephoneField = getFieldName ? getFieldName('telephone') : 'telephone';
+
   return (
     <div className="grid grid-cols-2 gap-2">
-      <div>
-        <InputField
-          name={getFieldName ? getFieldName('full_name') : 'full_name'}
-          defaultValue={fullName}
-          label={_('Full name')}
+      <div className="baghel-native-field">
+        <label>
+          {_('Full name')} <span>*</span>
+        </label>
+        <input
+          type="text"
           placeholder={_('Full name')}
-          required
-          validation={{
+          defaultValue={fullName}
+          {...register(fullNameField, {
             required: _('Full name is required')
-          }}
+          })}
         />
       </div>
-      <div>
-        <TelField
-          name={getFieldName ? getFieldName('telephone') : 'telephone'}
-          defaultValue={telephone}
-          label={_('Mobile')}
+      <div className="baghel-native-field">
+        <label>
+          {_('Mobile')} <span>*</span>
+        </label>
+        <input
+          type="tel"
           placeholder={_('Mobile number')}
-          required
-          validation={{
+          defaultValue={telephone}
+          {...register(telephoneField, {
             required: _('Mobile number is required')
-          }}
+          })}
         />
       </div>
     </div>

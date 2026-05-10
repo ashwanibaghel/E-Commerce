@@ -1,5 +1,4 @@
 import Area from '@components/common/Area.js';
-import { InputField } from '@components/common/form/InputField.js';
 import { NameAndTelephone } from '@components/frontStore/customer/address/addressForm/NameAndTelephone.js';
 import { ProvinceAndPostcode } from '@components/frontStore/customer/address/addressForm/ProvinceAndPostcode.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
@@ -95,16 +94,19 @@ export function CustomerAddressForm({
         {
           component: {
             default: (
-              <InputField
-                name={getFieldName('address_1')}
-                label={_('Address')}
-                placeholder={_('Address')}
-                defaultValue={address?.address1 || ''}
-                required
-                validation={{
-                  required: _('Address is required')
-                }}
-              />
+              <div className="baghel-native-field">
+                <label>
+                  {_('Address')} <span>*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={_('Address')}
+                  defaultValue={address?.address1 || ''}
+                  {...register(getFieldName('address_1'), {
+                    required: _('Address is required')
+                  })}
+                />
+              </div>
             )
           },
           sortOrder: 20
@@ -112,12 +114,15 @@ export function CustomerAddressForm({
         {
           component: {
             default: (
-              <InputField
-                name={getFieldName('address_2')}
-                label={_('Address 2')}
-                placeholder={_('Address 2')}
-                defaultValue={address?.address2 || ''}
-              />
+              <div className="baghel-native-field">
+                <label>{_('Address 2')}</label>
+                <input
+                  type="text"
+                  placeholder={_('Address 2')}
+                  defaultValue={address?.address2 || ''}
+                  {...register(getFieldName('address_2'))}
+                />
+              </div>
             )
           },
           sortOrder: 30
@@ -125,14 +130,19 @@ export function CustomerAddressForm({
         {
           component: {
             default: (
-              <InputField
-                name={getFieldName('city')}
-                label={_('City')}
-                placeholder={_('City')}
-                required
-                validation={{ required: _('City is required') }}
-                defaultValue={address?.city || ''}
-              />
+              <div className="baghel-native-field">
+                <label>
+                  {_('City')} <span>*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder={_('City')}
+                  defaultValue={address?.city || ''}
+                  {...register(getFieldName('city'), {
+                    required: _('City is required')
+                  })}
+                />
+              </div>
             )
           },
           sortOrder: 40

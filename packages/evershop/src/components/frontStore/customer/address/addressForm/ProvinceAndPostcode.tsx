@@ -1,7 +1,6 @@
-import { InputField } from '@components/common/form/InputField.js';
-import { SelectField } from '@components/common/form/SelectField.js';
 import { _ } from '@evershop/evershop/lib/locale/translate/_';
 import React from 'react';
+import { useFormContext } from 'react-hook-form';
 
 interface ProvinceAndPostcodeProps {
   provinces: {
@@ -20,31 +19,41 @@ export function ProvinceAndPostcode({
   postcode,
   getFieldName
 }: ProvinceAndPostcodeProps) {
+  const { register } = useFormContext();
+  const provinceField = getFieldName ? getFieldName('province') : 'address.province';
+  const postcodeField = getFieldName ? getFieldName('postcode') : 'postcode';
+
   return (
     <div className="grid grid-cols-2 gap-2 mt-2">
-      <div>
-        <SelectField
-          defaultValue={province?.code}
-          name={getFieldName ? getFieldName('province') : 'address.province'}
-          label={_('Province')}
-          placeholder={_('Province')}
-          required
-          validation={{
+      <div className="baghel-native-field">
+        <label>
+          {_('Province')} <span>*</span>
+        </label>
+        <select
+          defaultValue={province?.code || ''}
+          {...register(provinceField, {
             required: _('Province is required')
-          }}
-          options={provinces}
-        />
+          })}
+        >
+          <option value="">{_('Province')}</option>
+          {provinces.map((item) => (
+            <option key={item.value} value={item.value}>
+              {item.label}
+            </option>
+          ))}
+        </select>
       </div>
-      <div>
-        <InputField
-          name={getFieldName ? getFieldName('postcode') : 'postcode'}
-          defaultValue={postcode}
-          label={_('Postcode')}
+      <div className="baghel-native-field">
+        <label>
+          {_('Postcode')} <span>*</span>
+        </label>
+        <input
+          type="text"
           placeholder={_('Postcode')}
-          required
-          validation={{
+          defaultValue={postcode}
+          {...register(postcodeField, {
             required: _('Postcode is required')
-          }}
+          })}
         />
       </div>
     </div>
