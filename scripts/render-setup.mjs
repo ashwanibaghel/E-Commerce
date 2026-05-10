@@ -66,12 +66,16 @@ async function ensureDemoImages() {
 }
 
 async function seedDemoDataIfNeeded() {
-  const existingProduct = await select().from('product').load(pool);
-  if (existingProduct) {
-    console.log('Demo products already exist. Skipping demo seed.');
-    return;
-  }
+  const flagshipProduct = await select()
+    .from('product')
+    .where('sku', '=', 'BD-TV-55-4K')
+    .load(pool);
 
+  if (flagshipProduct) {
+    console.log('Baghel electronics demo product exists. Syncing any missing demo data...');
+  } else {
+    console.log('Baghel electronics demo data missing. Seeding catalog demo data...');
+  }
   await ensureDemoImages();
   const demoAttributeGroupId = await seedAttributeGroup();
   await seedAttributes(demoAttributeGroupId);
@@ -80,6 +84,7 @@ async function seedDemoDataIfNeeded() {
   await seedProducts(demoAttributeGroupId);
   await seedWidgets();
   await seedPages();
+  console.log('Baghel electronics demo data sync completed.');
 }
 
 await mkdir(path.resolve(process.cwd(), 'media'), { recursive: true });
