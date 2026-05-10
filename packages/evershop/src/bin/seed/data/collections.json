@@ -1,6 +1,6 @@
 [
   {
-    "name": "Featured Products",
+    "name": "Featured Electronics",
     "code": "homepage",
     "description": [
       {
@@ -16,7 +16,7 @@
                   "id": "fp_block_1",
                   "type": "paragraph",
                   "data": {
-                    "text": "Featured products displayed on the homepage"
+                    "text": "Premium demo products displayed on the homepage."
                   }
                 }
               ],
@@ -30,23 +30,23 @@
     ]
   },
   {
-    "name": "Summer Collection",
-    "code": "summer-2024",
+    "name": "Best Sellers",
+    "code": "best-sellers",
     "description": [
       {
-        "id": "r__summer",
+        "id": "r__best",
         "columns": [
           {
             "size": 1,
-            "id": "c__summer",
+            "id": "c__best",
             "data": {
               "time": 1729900000000,
               "blocks": [
                 {
-                  "id": "sc_block_1",
+                  "id": "best_block_1",
                   "type": "paragraph",
                   "data": {
-                    "text": "Hot picks for the summer season"
+                    "text": "High-demand electronics for local retail customers."
                   }
                 }
               ],
@@ -60,53 +60,23 @@
     ]
   },
   {
-    "name": "Winter Essentials",
-    "code": "winter-essentials",
+    "name": "Smart Home",
+    "code": "smart-home",
     "description": [
       {
-        "id": "r__winter",
+        "id": "r__smart_home",
         "columns": [
           {
             "size": 1,
-            "id": "c__winter",
+            "id": "c__smart_home",
             "data": {
               "time": 1729900000000,
               "blocks": [
                 {
-                  "id": "we_block_1",
+                  "id": "smart_home_block_1",
                   "type": "paragraph",
                   "data": {
-                    "text": "Stay warm and stylish this winter"
-                  }
-                }
-              ],
-              "version": "2.31.0"
-            }
-          }
-        ],
-        "size": 1,
-        "className": "md:grid-cols-1"
-      }
-    ]
-  },
-  {
-    "name": "Trending Now",
-    "code": "trending",
-    "description": [
-      {
-        "id": "r__trending",
-        "columns": [
-          {
-            "size": 1,
-            "id": "c__trending",
-            "data": {
-              "time": 1729900000000,
-              "blocks": [
-                {
-                  "id": "tn_block_1",
-                  "type": "paragraph",
-                  "data": {
-                    "text": "What's hot and trending right now"
+                    "text": "Connected devices, cameras, routers and entertainment gear."
                   }
                 }
               ],

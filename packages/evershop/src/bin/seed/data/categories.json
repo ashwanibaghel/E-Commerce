@@ -1,22 +1,22 @@
 [
   {
-    "name": "Accessories",
-    "url_key": "accessories",
+    "name": "Electronics",
+    "url_key": "electronics",
     "description": [
       {
-        "id": "r__accessories",
+        "id": "r__electronics",
         "columns": [
           {
             "size": 1,
-            "id": "c__accessories",
+            "id": "c__electronics",
             "data": {
               "time": 1729900000000,
               "blocks": [
                 {
-                  "id": "acc_block_1",
+                  "id": "electronics_block_1",
                   "type": "paragraph",
                   "data": {
-                    "text": "Complete your look with our stylish accessories"
+                    "text": "Premium televisions, smartphones, laptops, appliances and accessories with local support."
                   }
                 }
               ],
@@ -28,9 +28,9 @@
         "className": "md:grid-cols-1"
       }
     ],
-    "meta_title": "Fashion Accessories",
-    "meta_description": "Browse our collection of fashion accessories",
-    "meta_keywords": "accessories, fashion accessories, style",
+    "meta_title": "Premium Electronics",
+    "meta_description": "Shop premium electronics with warranty support and Cash on Delivery.",
+    "meta_keywords": "electronics, tv, mobile, laptop, home appliances",
     "status": 1,
     "include_in_nav": 1
   }
