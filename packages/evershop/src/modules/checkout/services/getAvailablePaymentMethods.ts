@@ -44,6 +44,15 @@ export async function getAvailablePaymentMethods(): Promise<
       applicableMethods.push(methodInfo);
     }
   }
+  if (
+    (process.env.ENABLE_COD === '1' || process.env.ENABLE_COD === 'true') &&
+    !applicableMethods.some((method) => method.code === 'cod')
+  ) {
+    applicableMethods.push({
+      code: 'cod',
+      name: 'Cash on Delivery'
+    });
+  }
   return applicableMethods;
 }
 

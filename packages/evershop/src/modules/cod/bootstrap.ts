@@ -15,6 +15,9 @@ export default async () => {
       name: await getSetting('codDisplayName', 'Cash on Delivery')
     }),
     validator: async () => {
+      if (process.env.ENABLE_COD === '1' || process.env.ENABLE_COD === 'true') {
+        return true;
+      }
       const codConfig = getConfig('system.cod', {}) as { status?: number };
       let codStatus;
       if (codConfig.status) {

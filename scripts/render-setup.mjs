@@ -105,6 +105,13 @@ try {
     })
     .execute(pool);
 
+  await insertOnUpdate('setting', ['name'])
+    .given({ name: 'codPaymentStatus', value: '1', is_json: 0 })
+    .execute(pool);
+  await insertOnUpdate('setting', ['name'])
+    .given({ name: 'codDisplayName', value: 'Cash on Delivery', is_json: 0 })
+    .execute(pool);
+
   await seedDemoDataIfNeeded();
 
   console.log(`Render setup completed. Admin user ready: ${adminEmail}`);

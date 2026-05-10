@@ -5,6 +5,13 @@ import { pool } from '../../../lib/postgres/connection.js';
 import { buildUrl } from '../../../lib/router/buildUrl.js';
 import { toPrice } from './toPrice.js';
 
+const localDeliveryMethod = {
+  id: 'local-delivery',
+  code: 'local-delivery',
+  name: 'Local Delivery',
+  cost: 0
+};
+
 export const getAvailableShippingMethods = async (
   cartId: string,
   country?: string,
@@ -26,7 +33,9 @@ export const getAvailableShippingMethods = async (
     .load(pool);
 
   if (!country && !shippingAddress?.country) {
-    return [];
+    return process.env.ENABLE_DEMO_SHIPPING === '0'
+      ? []
+      : [localDeliveryMethod];
   }
 
   const zoneQuery = select().from('shipping_zone');
@@ -57,7 +66,9 @@ export const getAvailableShippingMethods = async (
 
   const zone = await zoneQuery.load(pool);
   if (!zone) {
-    return [];
+    return process.env.ENABLE_DEMO_SHIPPING === '0'
+      ? []
+      : [localDeliveryMethod];
   }
 
   const methodsQuery = select().from('shipping_method');
@@ -166,10 +177,15 @@ export const getAvailableShippingMethods = async (
     })
   );
 
-  return methods.map((method) => ({
+  const availableMethods = methods.map((method) => ({
     id: method.uuid,
     code: method.uuid,
     name: method.name,
     cost: method.cost
   }));
+
+  return availableMethods.length > 0 ||
+    process.env.ENABLE_DEMO_SHIPPING === '0'
+    ? availableMethods
+    : [localDeliveryMethod];
 };
