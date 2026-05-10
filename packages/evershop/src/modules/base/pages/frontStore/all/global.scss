@@ -1279,17 +1279,28 @@ body:has(.baghel-account-page) footer {
 }
 
 .baghel-address-dialog {
-  top: 1.25rem !important;
+  top: 50% !important;
   bottom: auto !important;
-  transform: translateX(-50%) !important;
-  max-height: calc(100dvh - 2.5rem);
-  overflow-y: auto;
-  align-content: start;
+  display: flex !important;
+  flex-direction: column;
+  gap: 0 !important;
+  width: min(92vw, 44rem) !important;
+  max-width: calc(100vw - 1.5rem) !important;
+  max-height: min(88dvh, 46rem);
+  padding: 0 !important;
+  overflow: hidden;
+  transform: translate(-50%, -50%) !important;
   border: 1px solid rgba(201, 162, 39, 0.28);
   background: linear-gradient(180deg, #fffdf7, #fff7e4);
   color: #17130a;
   box-shadow: 0 28px 70px rgba(23, 19, 10, 0.24);
-  scrollbar-gutter: stable;
+}
+
+.baghel-address-dialog [data-slot='dialog-header'] {
+  flex: 0 0 auto;
+  padding: 1.25rem 1.45rem 0.85rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.16);
+  background: rgba(255, 253, 247, 0.96);
 }
 
 .baghel-address-dialog [data-slot='dialog-title'] {
@@ -1297,6 +1308,46 @@ body:has(.baghel-account-page) footer {
   color: #17130a;
   font-size: 1.45rem;
   line-height: 1.15;
+}
+
+.baghel-address-dialog [data-slot='dialog-close'] {
+  z-index: 2;
+}
+
+.baghel-address-dialog__form {
+  display: flex;
+  flex: 1 1 auto;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.baghel-address-dialog__form > fieldset {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 1rem 1.45rem;
+  scrollbar-gutter: stable;
+}
+
+.baghel-address-dialog__form > .mt-4 {
+  position: sticky;
+  bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0 !important;
+  padding: 0.95rem 1.45rem;
+  border-top: 1px solid rgba(201, 162, 39, 0.18);
+  background: linear-gradient(180deg, rgba(255, 253, 247, 0.94), #fff7e4);
+  box-shadow: 0 -12px 26px rgba(23, 19, 10, 0.08);
+}
+
+.baghel-address-dialog__form > .mt-4 button {
+  min-width: 9rem;
+}
+
+.baghel-address-dialog__danger {
+  margin-top: 0.9rem;
+  padding-top: 0.9rem;
+  border-top: 1px solid rgba(220, 38, 38, 0.15);
 }
 
 .baghel-checkout-saved-addresses {
@@ -1556,11 +1607,16 @@ body:has(.baghel-account-page) footer {
   }
 
   .baghel-address-dialog {
-    top: 0.75rem !important;
-    bottom: auto !important;
-    max-width: calc(100% - 1rem) !important;
-    max-height: calc(100dvh - 1.5rem);
-    padding: 1rem;
+    width: calc(100vw - 1rem) !important;
+    max-width: calc(100vw - 1rem) !important;
+    max-height: calc(100dvh - 1rem);
+  }
+
+  .baghel-address-dialog [data-slot='dialog-header'],
+  .baghel-address-dialog__form > fieldset,
+  .baghel-address-dialog__form > .mt-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .baghel-checkout-saved-addresses__top {

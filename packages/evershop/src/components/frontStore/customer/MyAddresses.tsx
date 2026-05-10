@@ -5,7 +5,6 @@ import { Button } from '@components/common/ui/Button.js';
 import {
   Dialog,
   DialogContent,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger
@@ -53,6 +52,8 @@ const Address: React.FC<{
               <Form
                 id="customerAddressForm"
                 method="PATCH"
+                className="baghel-address-dialog__form"
+                submitBtnText={_('Save address')}
                 onSubmit={async (data) => {
                   try {
                     await updateAddress(address.addressId, data);
@@ -71,24 +72,28 @@ const Address: React.FC<{
                     name="is_default"
                   />
                 </div>
+                <div className="baghel-address-dialog__danger">
+                  <Button
+                    type="button"
+                    variant="destructive"
+                    onClick={async (e) => {
+                      e.preventDefault();
+                      try {
+                        await deleteAddress(address.addressId);
+                        setDialogOpen(false);
+                        toast.success(
+                          _('Address has been deleted successfully!')
+                        );
+                      } catch (error) {
+                        toast.error(error.message);
+                      }
+                    }}
+                  >
+                    {_('Delete address')}
+                  </Button>
+                </div>
               </Form>
             </DialogContent>
-            <DialogFooter>
-              <Button
-                variant="destructive"
-                onClick={async (e) => {
-                  e.preventDefault();
-                  try {
-                    await deleteAddress(address.addressId);
-                    toast.success(_('Address has been deleted successfully!'));
-                  } catch (error) {
-                    toast.error(error.message);
-                  }
-                }}
-              >
-                {_('Delete')}
-              </Button>
-            </DialogFooter>
           </Dialog>
         </div>
       </ItemActions>
@@ -151,6 +156,8 @@ export function MyAddresses({ title }: { title?: string }) {
           <Form
             id="customerAddressForm"
             method={'POST'}
+            className="baghel-address-dialog__form"
+            submitBtnText={_('Save address')}
             onSubmit={async (data) => {
               try {
                 await addAddress(data as ExtendedCustomerAddress);
