@@ -7,6 +7,10 @@ interface FooterProps {
 }
 
 export function Footer({ copyRight }: FooterProps) {
+  const footerCopy = copyRight?.includes('Evershop')
+    ? '© 2026 Baghel Digital. All rights reserved.'
+    : copyRight || '© 2026 Baghel Digital. All rights reserved.';
+
   return (
     <footer className="footer baghel-footer mt-24">
       <Area id="footerTop" className="footer__top" />
@@ -36,7 +40,7 @@ export function Footer({ copyRight }: FooterProps) {
                     <span>Local Support</span>
                   </div>
                   <div className="copyright text-textSubdued">
-                    <span>{copyRight}</span>
+                    <span>{footerCopy}</span>
                   </div>
                 </div>
               )

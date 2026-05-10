@@ -13,7 +13,7 @@ Handlebars.registerHelper('currency', function (value) {
 
   return new Intl.NumberFormat('en-US', {
     style: 'currency',
-    currency: getConfig('shop.currency', 'USD'),
+    currency: getConfig('shop.currency', 'INR'),
     minimumFractionDigits: 0,
     maximumFractionDigits: 2
   }).format(number);

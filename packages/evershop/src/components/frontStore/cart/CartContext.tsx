@@ -411,7 +411,7 @@ interface CartProviderProps {
 
 const initialEmptyState: CartState = {
   data: {
-    currency: 'USD',
+    currency: 'INR',
     addItemApi: '', // initial addItemApi
     items: [],
     totalQty: 0,

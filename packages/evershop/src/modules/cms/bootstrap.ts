@@ -147,7 +147,7 @@ export default () => {
       scripts: [],
       bases: []
     },
-    copyRight: `© 2022 Evershop. All Rights Reserved.`
+    copyRight: `© 2026 Baghel Digital. All rights reserved.`
   };
   config.util.setModuleDefaults('themeConfig', defaultThemeConfig);
 

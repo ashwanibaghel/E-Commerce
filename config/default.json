@@ -1,0 +1,35 @@
+{
+  "shop": {
+    "currency": "INR",
+    "language": "en",
+    "weightUnit": "kg",
+    "timezone": "Asia/Kolkata",
+    "homeUrl": "http://localhost:3000"
+  },
+  "themeConfig": {
+    "logo": {
+      "alt": "Baghel Digital"
+    },
+    "copyRight": "© 2026 Baghel Digital. All rights reserved."
+  },
+  "system": {
+    "cod": {
+      "status": 1
+    },
+    "database": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "evershop",
+      "user": "admin",
+      "password": "123456"
+    },
+    "session": {
+      "maxAge": 86400000,
+      "resave": false,
+      "saveUninitialized": false,
+      "cookieSecret": "keyboard cat",
+      "cookieName": "sid",
+      "adminCookieName": "admin-sid"
+    }
+  }
+}
