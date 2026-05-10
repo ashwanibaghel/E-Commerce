@@ -22,7 +22,7 @@
     "start:debug": "node ./packages/evershop/dist/bin/start/index.js --debug",
     "test": "node --experimental-vm-modules ./scripts/run-jest.mjs",
     "lint": "eslint --fix --ext .js,.jsx,.ts,.tsx ./packages",
-    "prepare": "husky install"
+    "prepare": "node -e \"try { require('child_process').execSync('husky install', { stdio: 'inherit' }); } catch (error) { console.log('Skipping husky install'); }\""
   },
   "author": "Ashwani Baghel",
   "license": "GNU GENERAL PUBLIC LICENSE 3.0",
