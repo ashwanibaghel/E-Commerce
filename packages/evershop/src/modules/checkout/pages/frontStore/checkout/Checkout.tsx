@@ -26,7 +26,6 @@ export default function CheckoutPage({
 }: CheckoutPageProps) {
   const [disabled, setDisabled] = React.useState(false);
   const form = useForm({
-    disabled: disabled,
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {}

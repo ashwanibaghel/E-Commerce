@@ -106,6 +106,7 @@ export function Shipment() {
   const activeAddressKey =
     shippingAddress?.uuid ||
     (selectedSavedAddress ? getAddressKey(selectedSavedAddress) : 'empty');
+  const autoAppliedSavedAddressRef = useRef(false);
 
   const applySavedAddress = async (
     address: ExtendedCustomerAddress,
@@ -138,11 +139,18 @@ export function Shipment() {
   };
 
   useEffect(() => {
-    if (noShippingRequired || shippingAddress || !selectedSavedAddress) {
+    if (
+      noShippingRequired ||
+      shippingAddress ||
+      !selectedSavedAddress ||
+      autoAppliedSavedAddressRef.current
+    ) {
       return;
     }
 
+    autoAppliedSavedAddressRef.current = true;
     applySavedAddress(selectedSavedAddress).catch((error) => {
+      autoAppliedSavedAddressRef.current = false;
       toast.error(
         error instanceof Error
           ? error.message
