@@ -90,11 +90,9 @@ async function seedDemoDataIfNeeded() {
 await mkdir(path.resolve(process.cwd(), 'media'), { recursive: true });
 await mkdir(path.resolve(process.cwd(), 'public'), { recursive: true });
 
-const connection = await pool.connect();
-
 try {
-  await execute(connection, 'CREATE EXTENSION IF NOT EXISTS pgcrypto;');
-  await migrate(getCoreModules(), connection);
+  await execute(pool, 'CREATE EXTENSION IF NOT EXISTS pgcrypto;');
+  await migrate(getCoreModules());
 
   await insertOnUpdate('admin_user', ['email'])
     .given({
@@ -103,12 +101,11 @@ try {
       password: hashPassword(adminPassword),
       full_name: adminFullName
     })
-    .execute(connection);
+    .execute(pool);
 
   await seedDemoDataIfNeeded();
 
   console.log(`Render setup completed. Admin user ready: ${adminEmail}`);
 } finally {
-  connection.release();
   await pool.end();
 }
