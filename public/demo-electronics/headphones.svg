@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="900" viewBox="0 0 900 900" role="img" aria-label="BassMax Headphones">
+  <defs>
+    <radialGradient id="audioGlow" cx="50%" cy="28%" r="65%">
+      <stop offset="0%" stop-color="#d6a93a" stop-opacity=".4"/>
+      <stop offset="55%" stop-color="#171717" stop-opacity=".95"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
+  </defs>
+  <rect width="900" height="900" rx="54" fill="url(#audioGlow)"/>
+  <path d="M244 430 C244 274 334 176 450 176 C566 176 656 274 656 430" fill="none" stroke="#d6a93a" stroke-width="28" stroke-linecap="round"/>
+  <rect x="178" y="410" width="132" height="238" rx="54" fill="#0b0c0f" stroke="#d6a93a" stroke-width="7"/>
+  <rect x="590" y="410" width="132" height="238" rx="54" fill="#0b0c0f" stroke="#d6a93a" stroke-width="7"/>
+  <rect x="226" y="456" width="46" height="146" rx="23" fill="#1d6f9f" opacity=".55"/>
+  <rect x="628" y="456" width="46" height="146" rx="23" fill="#1d6f9f" opacity=".55"/>
+  <circle cx="450" cy="430" r="90" fill="none" stroke="#d6a93a" stroke-opacity=".45" stroke-width="6"/>
+  <text x="450" y="744" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" fill="#fff7df">BassMax</text>
+  <text x="450" y="792" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="20" letter-spacing="5" fill="#d6a93a">WIRELESS AUDIO</text>
+</svg>

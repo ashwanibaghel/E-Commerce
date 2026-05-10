@@ -20,6 +20,9 @@ npm-debug.log
 /package-log.json
 /media
 /public
+!/public/
+!/public/demo-electronics/
+!/public/demo-electronics/*.svg
 .DS_Store
 .log
 coverage
