@@ -217,6 +217,10 @@ export function registerCartBaseFields(fields) {
               zone.province === addressData.province || zone.province === null
           );
           if (!shippingZone) {
+            if (process.env.ENABLE_DEMO_SHIPPING !== '0') {
+              this.setError('shipping_address', undefined);
+              return null;
+            }
             this.setError('shipping_address', 'We do not ship to this address');
             return null;
           } else {
@@ -275,6 +279,12 @@ export function registerCartBaseFields(fields) {
           }
           if (!shippingMethod) {
             return null;
+          }
+          if (
+            shippingMethod === 'local-delivery' &&
+            process.env.ENABLE_DEMO_SHIPPING !== '0'
+          ) {
+            return 'local-delivery';
           }
           if (
             !this.getData('shipping_address') ||
@@ -353,6 +363,11 @@ export function registerCartBaseFields(fields) {
           }
           if (!this.getData('shipping_method')) {
             return null;
+          } else if (
+            this.getData('shipping_method') === 'local-delivery' &&
+            process.env.ENABLE_DEMO_SHIPPING !== '0'
+          ) {
+            return 'Local Delivery';
           } else {
             const shippingMethod = await select()
               .from('shipping_method')
@@ -372,6 +387,11 @@ export function registerCartBaseFields(fields) {
             return null;
           }
           if (!this.getData('shipping_method')) {
+            return 0;
+          } else if (
+            this.getData('shipping_method') === 'local-delivery' &&
+            process.env.ENABLE_DEMO_SHIPPING !== '0'
+          ) {
             return 0;
           } else {
             // Check if the coupon is free shipping
