@@ -2,7 +2,7 @@
   "name": "@evershop/evershop",
   "version": "2.1.2",
   "type": "module",
-  "description": "The React Ecommerce platform. Built with Typescript, React and Postgres. Open-source and free. Fast and customizable.",
+  "description": "Commerce runtime customized for the Baghel Digital electronics ecommerce demo.",
   "files": [
     "dist",
     "src",
@@ -123,21 +123,22 @@
     "user:changePassword": "evershop user:changePassword",
     "test": "jest"
   },
-  "author": "The Nguyen (https://evershop.io)",
+  "author": "Ashwani Baghel",
   "license": "GNU GENERAL PUBLIC LICENSE 3.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/evershopcommerce/evershop.git"
+    "url": "git+https://github.com/ashwanibaghel/E-Commerce.git"
   },
   "keywords": [
+    "baghel-digital",
+    "electronics",
     "ecommerce",
-    "shopping cart",
-    "cart"
+    "shopping-cart"
   ],
   "bugs": {
-    "url": "https://github.com/evershopcommerce/evershop/issues"
+    "url": "https://github.com/ashwanibaghel/E-Commerce/issues"
   },
-  "homepage": "http://evershop.io/",
+  "homepage": "https://github.com/ashwanibaghel/E-Commerce",
   "dependencies": {
     "@base-ui/react": "^1.1.0",
     "@ckeditor/ckeditor5-build-classic": "^36.0.1",

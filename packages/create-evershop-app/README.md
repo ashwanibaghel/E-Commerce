@@ -1,6 +1,11 @@
-# create-evershop-app
+# Project Scaffolding Package
 
-This package includes the global command for [Create EverShop App](https://evershop.io/).<br> Please refer to its documentation:
+This package is retained from the underlying commerce workspace and is not used directly in the Baghel Digital client demo.
 
-- [Getting Started](https://evershop.io/docs/development/getting-started/introduction) – How to create a new app.
-- [Development Guide](https://evershop.io/docs/development/) – How to develop an ecommerce web app with EverShop.
+For the demo site, use the repository root commands:
+
+```bash
+npm install
+npm run compile
+npm run dev
+```

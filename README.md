@@ -1,110 +1,66 @@
-<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<p align="center">
-<img width="60" height="68" alt="EverShop Logo" src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/logo-green.png"/>
-</p>
-<p align="center">
-  <h1 align="center">EverShop</h1>
-</p>
-<p align="center">
-  <a href="https://trendshift.io/repositories/212" target="_blank"><img src="https://trendshift.io/api/badge/repositories/212" alt="evershopcommerce%2Fevershop | Trendshift" style="width: 250px; height: 55px;" width="250" height="55"/></a>
-</p>
-<h4 align="center">
-    <a href="https://evershop.io/docs/development/getting-started/introduction">Documentation</a> |
-    <a href="https://demo.evershop.io/">Demo</a>
-</h4>
+# Baghel Digital Ecommerce Demo
 
-<p align="center">
-  <img src="https://github.com/evershopcommerce/evershop/actions/workflows/build_test.yml/badge.svg" alt="Github Action"> <a href="https://twitter.com/evershopjs"><img alt="Twitter Follow" src="https://img.shields.io/twitter/follow/evershopjs?style=social"></a> <a href="https://discord.gg/GSzt7dt7RM"><img src="https://img.shields.io/discord/757179260417867879?label=discord" alt="Discord"></a> <a href="https://opensource.org/licenses/GPL-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License"></a>
-</p>
+Premium electronics storefront and admin demo built for a local retail client presentation. The project is customized for an Indian electronics shop with INR pricing, Cash on Delivery, customer accounts, saved addresses, invoice downloads, support documents and a simplified ecommerce admin dashboard.
 
-<p align="center">
-<img alt="EverShop" width="950" src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/banner.png"/>
-</p>
+## What This Demo Shows
 
-## Introduction
+- Premium black/gold and light gold storefront themes
+- Electronics catalog with product details, specifications and warranty/service sections
+- INR pricing across the shopping experience
+- Cash on Delivery checkout flow
+- Customer registration, login, saved address book and account dashboard
+- Checkout address reuse from saved customer addresses
+- Order success page with invoice and support document downloads
+- Admin dashboard focused on orders and products
+- Simplified product creation fields for real electronics inventory
+- Order management flow: review, confirm/reject, mark COD paid, ship and deliver
 
-EverShop is a modern, TypeScript-first eCommerce platform built with GraphQL and React. Designed for developers, it offers essential commerce features in a modular, fully customizable architecture—perfect for building tailored shopping experiences with confidence and speed.
-
-## Installation Using Docker
-
-
-You can get started with EverShop in minutes by using the Docker image. The Docker image is a great way to get started with EverShop without having to worry about installing dependencies or configuring your environment.
+## Local Setup
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/evershopcommerce/evershop/main/docker-compose.yml > docker-compose.yml
-docker compose up -d
+npm install
+npm run compile
+npm run dev
 ```
 
-For the full installation guide, please refer to our [Installation guide](https://evershop.io/docs/development/getting-started/installation-guide).
+Open:
 
-## Documentation
+```text
+http://localhost:3000
+```
 
-- [Installation guide](https://evershop.io/docs/development/getting-started/installation-guide).
+Admin:
 
-- [Extension development](https://evershop.io/docs/development/module/create-your-first-extension).
+```text
+http://localhost:3000/admin
+```
 
-- [Theme development](https://evershop.io/docs/development/theme/theme-overview).
+## Demo Credentials
 
+```text
+Admin email: admin@admin.com
+Admin password: Admin123!
+```
 
-## Demo
+Customer accounts can be created from the storefront login/register page.
 
-Explore our demo store.
+## Environment
 
-<p align="left">
-  <a href="https://demo.evershop.io/admin" target="_blank">
-    <img alt="evershop-backend-demo" height="35" alt="EverShop Admin Demo" src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/evershop-demo-back.png"/>
-  </a>
-  <a href="https://demo.evershop.io/" target="_blank">
-    <img alt="evershop-store-demo" height="35" alt="EverShop Store Demo" src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/evershop-demo-front.png"/>
-  </a>
-</p>
-<b>Demo user:</b>
+The project expects a PostgreSQL database and local environment variables in `.env`. Do not commit `.env`, database dumps, generated media, `node_modules`, `dist`, or server logs.
 
-Email: demo@evershop.io<br/>
-Password: 123456
+## Main Commands
 
-## Support
+```bash
+npm run compile
+npm run dev
+npm run build
+npm run start
+```
 
-If you like my work, feel free to:
+## Project Notes
 
-- ⭐ this repository. It helps.
-- [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)][tweet] about EverShop. Thank you!
-
-[tweet]: https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Fevershopcommerce%2Fevershop&text=Awesome%20React%20Ecommerce%20Project&hashtags=react,ecommerce,expressjs,graphql
-
-## Contributing
-
-EverShop is an open-source project. We are committed to a fully transparent development process and appreciate highly any contributions. Whether you are helping us fix bugs, proposing new features, improving our documentation or spreading the word - we would love to have you as part of the EverShop community.
-
-### Ask a question about EverShop
-
-You can ask questions, and participate in discussions about EverShop-related topics in the EverShop Discord channel.
-
-<a href="https://discord.gg/GSzt7dt7RM"><img src="https://raw.githubusercontent.com/evershopcommerce/evershop/dev/.github/images/discord_banner_github.svg" /></a>
-
-### Create a bug report
-
-If you see an error message or run into an issue, please [create bug report](https://github.com/evershopcommerce/evershop/issues/new). This effort is valued and it will help all EverShop users.
-
-
-### Submit a feature request
-
-If you have an idea, or you're missing a capability that would make development easier and more robust, please [Submit feature request](https://github.com/evershopcommerce/evershop/issues/new).
-
-If a similar feature request already exists, don't forget to leave a "+1".
-If you add some more information such as your thoughts and vision about the feature, your comments will be embraced warmly :)
-
-
-Please refer to our [Contribution Guidelines](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md).
-
-## 🚀 The Future of EverShop
-
-EverShop is seeing rapid organic growth and strong adoption from the developer community. We are now scaling our operations and building **EverShop Cloud**.
-
-If you are a strategic investor interested in the future of Node.js commerce and our mission to set a new standard for modern eCommerce, we’d love to share our vision and roadmap with you.
-
-📩 **Get in touch:** support@evershop.io
+This is a client-facing ecommerce demo customized by Ashwani Baghel for Baghel Digital. The codebase uses a GPL-licensed commerce foundation and keeps the original GPL license available in this repository.
 
 ## License
 
-[GPL-3.0 License](https://github.com/evershopcommerce/evershop/blob/main/LICENSE)
+This repository is distributed under the GNU General Public License v3.0. See [LICENSE](./LICENSE) and [NOTICE](./NOTICE.md).
