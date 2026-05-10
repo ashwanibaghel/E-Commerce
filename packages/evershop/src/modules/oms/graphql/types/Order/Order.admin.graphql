@@ -1,0 +1,16 @@
+extend type Order {
+  customerUrl: String
+  editUrl: String!
+  createShipmentApi: String!
+  cancelApi: String!
+  demoOrderStatusApi: String!
+  shipment: Shipment
+}
+
+extend type Shipment {
+  updateShipmentApi: String!
+}
+
+extend type Query {
+  orders(filters: [FilterInput]): OrderCollection
+}

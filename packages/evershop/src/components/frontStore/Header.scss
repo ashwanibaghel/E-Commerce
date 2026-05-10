@@ -1,0 +1,25 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid rgba(201, 162, 39, 0.32);
+  background:
+    linear-gradient(90deg, rgba(201, 162, 39, 0.1), transparent 24%),
+    rgba(7, 7, 8, 0.94);
+  color: #f8f1dc;
+  backdrop-filter: blur(18px);
+  @media only screen and (min-width: 1200px) {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+}
+
+html[data-baghel-theme='light'] .header {
+  border-bottom-color: rgba(184, 137, 18, 0.24);
+  background:
+    linear-gradient(90deg, rgba(255, 214, 96, 0.22), transparent 26%),
+    rgba(255, 253, 247, 0.94);
+  color: #17130a;
+  box-shadow: 0 12px 32px rgba(112, 82, 10, 0.08);
+}

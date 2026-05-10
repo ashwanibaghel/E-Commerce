@@ -1,0 +1,29 @@
+.nav-item {
+  // Open, close transition
+  &.closed {
+    // Close transition
+    // Hide the children
+    .item-group {
+      display: none;
+    }
+  }
+  .item-group {
+    .nav-item {
+      > a {
+        padding-left: 1.25rem;
+      }
+    }
+  }
+}
+.root-label {
+  span:first-child {
+    padding-right: 10px;
+  }
+}
+.root-nav-item:last-child {
+  position: static;
+  width: auto;
+  background-color: transparent;
+  padding-bottom: 0;
+  padding-top: 0;
+}
