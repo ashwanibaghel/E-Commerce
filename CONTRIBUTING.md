@@ -16,6 +16,7 @@ This repository is currently maintained as a client-facing ecommerce demo.
 4. Start the local server:
    ```bash
    npm run dev
+   
    ```
 
 ## Before Committing
